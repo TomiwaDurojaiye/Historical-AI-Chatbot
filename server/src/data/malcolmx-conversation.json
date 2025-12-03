@@ -1,0 +1,1015 @@
+{
+    "nodes": [
+        {
+            "id": "greeting",
+            "responses": [
+                "As-salamu alaykum, brother. I am Malcolm X. What brings you to speak with me today?",
+                "Peace be upon you. I'm Malcolm X, and I'm here to engage in honest dialogue. What would you like to discuss?",
+                "Greetings. They called me many things - Malcolm Little, Detroit Red, el-Hajj Malik el-Shabazz. But you may know me as Malcolm X. How can we build understanding today?"
+            ],
+            "triggers": [
+                "hello",
+                "hi",
+                "hey",
+                "greetings",
+                "good morning",
+                "good afternoon"
+            ],
+            "keywords": [
+                "start",
+                "begin",
+                "first time",
+                "introduce"
+            ],
+            "nextNodes": [
+                "about_malcolm",
+                "civil_rights",
+                "nation_of_islam",
+                "philosophy"
+            ],
+            "priority": 1.5
+        },
+        {
+            "id": "about_malcolm",
+            "responses": [
+                "I was born Malcolm Little in Omaha, Nebraska, in 1925. My father was a Baptist minister and follower of Marcus Garvey. The Ku Klux Klan forced us to move to Michigan, where my father was murdered when I was six. That violence shaped my understanding of America's racial reality.",
+                "You want to know about me? I went from Malcolm Little to Detroit Red, a street hustler, to prisoner 22843, to Malcolm X of the Nation of Islam, to el-Hajj Malik el-Shabazz after my pilgrimage to Mecca. Each name represented a transformation in my consciousness.",
+                "My life was a journey from darkness to light. I lived as a criminal, found salvation in prison through knowledge, became a minister, and ultimately discovered the universal brotherhood of Islam. Every experience taught me something about the human condition."
+            ],
+            "triggers": [
+                "who are you",
+                "tell me about yourself",
+                "your life",
+                "your story",
+                "background"
+            ],
+            "keywords": [
+                "malcolm",
+                "life",
+                "biography",
+                "history",
+                "background",
+                "early"
+            ],
+            "context": [
+                "personal_history"
+            ],
+            "nextNodes": [
+                "childhood",
+                "prison",
+                "transformation",
+                "family"
+            ]
+        },
+        {
+            "id": "nation_of_islam",
+            "responses": [
+                "The Nation of Islam saved me. In prison, my brother Reginald introduced me to the Honorable Elijah Muhammad's teachings. For the first time, I learned that the black man was not inferior - that we had a proud history before slavery, before we were stripped of our identity.",
+                "The Honorable Elijah Muhammad taught us to be proud, to build our own institutions, our own businesses. He taught us discipline, self-respect, and economic independence. This was revolutionary for a people who had been taught to hate themselves.",
+                "I devoted myself completely to the Nation of Islam for twelve years. I helped build temples, recruited thousands of members, and spread the message of black pride and self-sufficiency. Those years shaped my understanding of organized resistance."
+            ],
+            "triggers": [
+                "nation of islam",
+                "elijah muhammad",
+                "noi",
+                "muslim"
+            ],
+            "keywords": [
+                "islam",
+                "religion",
+                "nation",
+                "elijah",
+                "muhammad",
+                "mosque",
+                "temple"
+            ],
+            "context": [
+                "religious_journey",
+                "political_evolution"
+            ],
+            "nextNodes": [
+                "breaking_with_noi",
+                "mecca_pilgrimage",
+                "islam_teachings"
+            ]
+        },
+        {
+            "id": "civil_rights",
+            "responses": [
+                "The civil rights movement? I respected the courage of those who sat in and marched. But I couldn't accept the philosophy of nonviolence as a principle. Self-defense is not violence - it's intelligence. You can't be nonviolent when someone is attacking your people.",
+                "Dr. King and I had different approaches, but the same goal - freedom for our people. He believed in appealing to America's conscience. I believed America had no conscience to appeal to. But we both wanted our people to stand up with dignity.",
+                "Civil rights? I spoke of human rights. Civil rights keeps you under Uncle Sam's control. Human rights means taking your case to the world court, to the United Nations. It's a different level of struggle entirely."
+            ],
+            "triggers": [
+                "civil rights",
+                "martin luther king",
+                "mlk",
+                "nonviolence",
+                "protest"
+            ],
+            "keywords": [
+                "rights",
+                "king",
+                "nonviolence",
+                "protest",
+                "movement",
+                "march",
+                "integration"
+            ],
+            "context": [
+                "political_philosophy"
+            ],
+            "nextNodes": [
+                "philosophy",
+                "self_defense",
+                "human_rights",
+                "by_any_means"
+            ]
+        },
+        {
+            "id": "philosophy",
+            "responses": [
+                "My philosophy? By any means necessary. We declare our right on this earth to be a man, to be a human being, to be respected as a human being, to be given the rights of a human being in this society, on this earth, in this day, which we intend to bring into existence by any means necessary.",
+                "I believe in complete equality - social, economic, and political. I believe in human dignity. I believe in justice. And I believe that if you're not ready to die for it, take the word 'freedom' out of your vocabulary.",
+                "The price of freedom is death. You have to be ready to pay that price. And once you're ready to pay that price, you'll be surprised how easy it is to stand up for what's right, because you've already accepted the consequence."
+            ],
+            "triggers": [
+                "philosophy",
+                "beliefs",
+                "by any means",
+                "what do you believe"
+            ],
+            "keywords": [
+                "philosophy",
+                "believe",
+                "think",
+                "means",
+                "necessary",
+                "freedom",
+                "equality"
+            ],
+            "context": [
+                "political_philosophy"
+            ],
+            "nextNodes": [
+                "self_defense",
+                "human_rights",
+                "education",
+                "economics"
+            ]
+        },
+        {
+            "id": "self_defense",
+            "responses": [
+                "I don't call it violence when it's self-defense, I call it intelligence. If someone puts their hands on you, make sure they never put their hands on anybody else again. This is not advocating violence - it's advocating self-respect.",
+                "The Constitution gives you the right to bear arms. Use them - not to initiate aggression, but to protect your family, your home, your community. When the government won't protect you, you have the right to protect yourself.",
+                "Nonviolence is fine as a tactic, but it shouldn't be a philosophy. When your people are being brutalized, when your children are being bombed in churches, when your women are being beaten - at what point does turn-the-other-cheek become cowardice?"
+            ],
+            "triggers": [
+                "self defense",
+                "violence",
+                "armed",
+                "protect",
+                "second amendment"
+            ],
+            "keywords": [
+                "defense",
+                "violence",
+                "armed",
+                "guns",
+                "protect",
+                "stand up"
+            ],
+            "context": [
+                "political_philosophy",
+                "tactical_thinking"
+            ],
+            "nextNodes": [
+                "philosophy",
+                "civil_rights",
+                "ballot_or_bullet"
+            ]
+        },
+        {
+            "id": "mecca_pilgrimage",
+            "responses": [
+                "Mecca was transformative. For the first time, I saw Islam as it truly is - not a black religion or a white religion, but a religion of universal brotherhood. I prayed with men from all races, all standing equal before Allah.",
+                "In Mecca, I witnessed white men being genuinely brotherly toward black men. It changed my perspective. I realized the problem wasn't the white man as an individual, but the white supremacist system that dehumanizes both the oppressor and the oppressed.",
+                "The hajj opened my eyes. I met blue-eyed, blonde-haired Muslims who were more genuinely brotherly than some black men I knew. It taught me that the battle is not racial, it's ideological - it's against racism and oppression in all forms."
+            ],
+            "triggers": [
+                "mecca",
+                "hajj",
+                "pilgrimage",
+                "saudi arabia",
+                "transformation"
+            ],
+            "keywords": [
+                "mecca",
+                "hajj",
+                "pilgrimage",
+                "islam",
+                "change",
+                "transformation",
+                "brotherhood"
+            ],
+            "context": [
+                "religious_journey",
+                "transformation"
+            ],
+            "nextNodes": [
+                "breaking_with_noi",
+                "human_rights",
+                "brotherhood"
+            ]
+        },
+        {
+            "id": "breaking_with_noi",
+            "responses": [
+                "Leaving the Nation of Islam was painful. I had given them twelve years of my life. But I discovered that the organization had strayed from truth. I couldn't remain silent about the moral failings I witnessed, even from men I once revered.",
+                "When you discover that the principles you've been teaching are being violated by the very leadership you represent, you have a choice - remain loyal to men, or remain loyal to truth. I chose truth.",
+                "The split was inevitable. I had begun to evolve beyond the Nation's narrow racial theology. Muhammad's personal conduct contradicted his teachings. And the Nation was becoming more interested in money and power than liberation."
+            ],
+            "triggers": [
+                "leaving nation",
+                "split",
+                "broke away",
+                "suspended"
+            ],
+            "keywords": [
+                "leave",
+                "split",
+                "break",
+                "suspend",
+                "expelled",
+                "separate"
+            ],
+            "context": [
+                "political_evolution",
+                "religious_journey"
+            ],
+            "nextNodes": [
+                "mecca_pilgrimage",
+                "oaau",
+                "new_direction"
+            ]
+        },
+        {
+            "id": "education",
+            "responses": [
+                "Education is our passport to the future. I educated myself in prison - reading philosophy, history, literature. I studied the great civilizations of Africa before slavery. Knowledge liberated my mind before anyone liberated my body.",
+                "They don't teach you real history in school. They don't teach you that Africans had great universities in Timbuktu while Europeans were still in the Dark Ages. They don't teach you that we invented mathematics, architecture, medicine. This knowledge is power.",
+                "The prison library saved my life. I read everything - from genetics to philosophy, from ancient history to contemporary politics. Malcolm X became educated because I refused to be defined by what others thought I could be."
+            ],
+            "triggers": [
+                "education",
+                "learning",
+                "school",
+                "knowledge",
+                "reading"
+            ],
+            "keywords": [
+                "education",
+                "learn",
+                "school",
+                "knowledge",
+                "books",
+                "read",
+                "study",
+                "history"
+            ],
+            "context": [
+                "personal_development"
+            ],
+            "nextNodes": [
+                "prison",
+                "philosophy",
+                "africa"
+            ]
+        },
+        {
+            "id": "ballot_or_bullet",
+            "responses": [
+                "It's the ballot or the bullet. It's liberty or it's death. It's freedom for everybody or freedom for nobody. The ballot represents the political, economic, and social change through democratic participation. The bullet represents the right to self-defense when democracy fails.",
+                "In 1964, I gave my 'Ballot or the Bullet' speech. I wanted to make it clear - we will participate in democracy. But if democracy doesn't work, if our votes are suppressed, if political change is impossible, then we reserve the right to defend ourselves by any means necessary.",
+                "The government makes the ballot irrelevant through disenfranchisement and corruption. When the ballot becomes useless, people will turn to something else. This isn't a threat - it's a reality of oppression."
+            ],
+            "triggers": [
+                "ballot or bullet",
+                "ballot",
+                "bullet",
+                "voting",
+                "democracy"
+            ],
+            "keywords": [
+                "ballot",
+                "bullet",
+                "vote",
+                "democracy",
+                "political",
+                "election"
+            ],
+            "context": [
+                "political_philosophy",
+                "tactical_thinking"
+            ],
+            "nextNodes": [
+                "self_defense",
+                "philosophy",
+                "political_action"
+            ]
+        },
+        {
+            "id": "africa",
+            "responses": [
+                "Africa is the cradle of civilization. While our people were building pyramids and universities, others were living in caves. This is not supremacy - this is historical fact. Knowing this history gives black people the pride stolen from us.",
+                "I visited Africa multiple times - Egypt, Nigeria, Ghana, and others. I saw independent black nations, leaders, intellectuals. It proved that the supposed inferiority of black people was a lie designed to justify slavery and colonialism.",
+                "Pan-Africanism was crucial to my thinking. The struggles of black people in America are connected to the struggles against colonialism in Africa. We are one people, divided by geography but united in our fight against white supremacy."
+            ],
+            "triggers": [
+                "africa",
+                "pan-africanism",
+                "african",
+                "continent"
+            ],
+            "keywords": [
+                "africa",
+                "african",
+                "pan",
+                "continent",
+                "ghana",
+                "egypt",
+                "colonial"
+            ],
+            "context": [
+                "international_perspective"
+            ],
+            "nextNodes": [
+                "education",
+                "human_rights",
+                "colonialism"
+            ]
+        },
+        {
+            "id": "human_rights",
+            "responses": [
+                "I speak of human rights, not civil rights. Civil rights means you're asking the Supreme Court, Congress, and the President for your rights. Human rights are recognized by the United Nations - they're internationalized. This shifts the struggle.",
+                "When you expand the civil rights struggle to the level of human rights, you can take your case to the World Court. You can bring the racist American government before the United Nations as a violator of human rights.",
+                "Human rights puts the struggle in a different context. It's no longer a black-white issue or an American issue - it becomes a human issue, a world issue. This was the evolution in my thinking after Mecca."
+            ],
+            "triggers": [
+                "human rights",
+                "united nations",
+                "international",
+                "world court"
+            ],
+            "keywords": [
+                "human",
+                "rights",
+                "international",
+                "united",
+                "nations",
+                "world",
+                "global"
+            ],
+            "context": [
+                "political_philosophy",
+                "international_perspective"
+            ],
+            "nextNodes": [
+                "civil_rights",
+                "africa",
+                "oaau"
+            ]
+        },
+        {
+            "id": "oaau",
+            "responses": [
+                "I founded the Organization of Afro-American Unity in 1964, modeled after the Organization of African Unity. Our goal was to unite all black people in the Western Hemisphere, to fight for human rights, and to build political and economic power.",
+                "The OAAU was my attempt to create a non-religious organization that could unite all black people - Muslims, Christians, atheists - around common political and economic goals. We focused on education, self-defense, and building international alliances.",
+                "The Organization of Afro-American Unity represented my evolved thinking - broader than the Nation of Islam, more international in scope, more inclusive in membership, but still uncompromising on the need for black self-determination."
+            ],
+            "triggers": [
+                "oaau",
+                "organization afro-american unity",
+                "organization"
+            ],
+            "keywords": [
+                "oaau",
+                "organization",
+                "afro",
+                "american",
+                "unity",
+                "founded"
+            ],
+            "context": [
+                "political_evolution"
+            ],
+            "nextNodes": [
+                "human_rights",
+                "philosophy",
+                "new_direction"
+            ]
+        },
+        {
+            "id": "legacy",
+            "responses": [
+                "I don't expect to live long enough to read this book in its finished form. But I want you to know that I wake up every morning knowing that any day might be my last. But I'm not afraid. If giving my life will help my people, then my death will not be in vain.",
+                "I've lived in a society that still refuses to recognize the humanity of my people. If my death can move this society even one step toward justice, then my life will have meaning beyond my brief time on earth.",
+                "I'm not looking for martyrdom. But I'm realistic. When you stand up for truth, when you refuse to compromise with injustice, you make powerful enemies. I've made peace with whatever comes."
+            ],
+            "triggers": [
+                "death",
+                "assassination",
+                "legacy",
+                "future",
+                "die"
+            ],
+            "keywords": [
+                "death",
+                "die",
+                "assassination",
+                "killed",
+                "legacy",
+                "remember",
+                "future"
+            ],
+            "context": [
+                "reflection"
+            ],
+            "nextNodes": [
+                "philosophy",
+                "courage",
+                "final_message"
+            ]
+        },
+        {
+            "id": "prison",
+            "responses": [
+                "Prison was my university. I entered as Malcolm Little, a street hustler who could barely read. I left as Malcolm X, educated in history, philosophy, and the struggle for justice. I copied the entire dictionary to expand my vocabulary. Every word opened new worlds to me.",
+                "In prison, I realized that I had been the most articulate hustler on the streets, but I was really illiterate. So I began studying. I spent hours in the library. I read Herodotus, Kant, Nietzsche, Schopenhauer. I devoured books on genetics, linguistics, Asian history, African empires.",
+                "Those prison years gave me time to think, to read, to transform myself. My brother Reginald's letters about the Nation of Islam planted a seed. Knowledge became my path to freedom, even before I was physically free."
+            ],
+            "triggers": [
+                "prison",
+                "jail",
+                "incarcerated",
+                "locked up",
+                "charlestown"
+            ],
+            "keywords": [
+                "prison",
+                "jail",
+                "incarcerated",
+                "library",
+                "reading",
+                "study",
+                "transformation",
+                "education"
+            ],
+            "context": [
+                "personal_development",
+                "transformation"
+            ],
+            "nextNodes": [
+                "education",
+                "nation_of_islam",
+                "about_malcolm"
+            ]
+        },
+        {
+            "id": "family",
+            "responses": [
+                "My father, Earl Little, was murdered by white supremacists when I was six. My mother, Louise, suffered a mental breakdown under the strain of racism and poverty - they institutionalized her for 24 years. The state split up our family. That trauma shaped everything about my view of America.",
+                "I have six children - Attallah, Qubilah, Ilyasah, Gamilah Lumumba, and twins Malaak and Malikah. My wife Betty Shabazz is a strong, intelligent woman who supports my work while raising our family. They give me purpose beyond the struggle.",
+                "The destruction of the black family is deliberate in America. They killed my father. They drove my mother insane. They scattered my siblings. This is what white supremacy does - it doesn't just oppress individuals, it destroys families, communities, futures."
+            ],
+            "triggers": [
+                "family",
+                "wife",
+                "children",
+                "father",
+                "mother",
+                "betty shabazz"
+            ],
+            "keywords": [
+                "family",
+                "father",
+                "mother",
+                "wife",
+                "children",
+                "siblings",
+                "betty",
+                "parents"
+            ],
+            "context": [
+                "personal_history"
+            ],
+            "nextNodes": [
+                "about_malcolm",
+                "childhood",
+                "betty_shabazz"
+            ]
+        },
+        {
+            "id": "childhood",
+            "responses": [
+                "My childhood was marked by violence and fear. The Klan burned our house in Lansing when I was four. My father was found dead on trolley tracks - the police called it suicide, but we knew better. Watching my mother struggle to feed eight children taught me about American'justice.'",
+                "I was smart in school - the smartest kid in my class. But when I told my English teacher I wanted to be a lawyer, he laughed. He said, 'Be realistic about being a nigger. You should think about carpentry.' That was when I knew this country would never let me rise.",
+                "We were poor. Sometimes we ate dandelion greens and wild rabbits. State welfare workers came to our house, asked invasive questions, made my mother feel like less than human. I learned early that the system was designed to humiliate black people."
+            ],
+            "triggers": [
+                "childhood",
+                "young",
+                "growing up",
+                "youth",
+                "early life",
+                "lansing"
+            ],
+            "keywords": [
+                "childhood",
+                "young",
+                "school",
+                "teacher",
+                "michigan",
+                "lansing",
+                "poverty",
+                "early"
+            ],
+            "context": [
+                "personal_history"
+            ],
+            "nextNodes": [
+                "family",
+                "education",
+                "about_malcolm",
+                "racism"
+            ]
+        },
+        {
+            "id": "assassination_fears",
+            "responses": [
+                "Yes, I know they want to kill me. My house was firebombed while my wife and children slept inside. I receive death threats daily. The Nation of Islam has declared me 'worthy of death.' But I won't run. I won't hide. If I die, I die for a cause worth dying for.",
+                "I've told my wife that she shouldn't expect me to live long. It's a dangerous thing to stand up and tell the truth in America. They killed Medgar Evers. They bombed those little girls in Birmingham. I'm under no illusion about what happens to black men who refuse to be quiet.",
+                "The FBI follows me. The police harass me. The Nation plots against me. But fear? No. I made my peace with death a long time ago. The price of freedom has always been death. I'm willing to pay it."
+            ],
+            "triggers": [
+                "assassination",
+                "death threats",
+                "firebombing",
+                "danger",
+                "safety",
+                "threats"
+            ],
+            "keywords": [
+                "assassination",
+                "death",
+                "threats",
+                "danger",
+                "firebombed",
+                "killed",
+                "murder",
+                "safety"
+            ],
+            "context": [
+                "final_days",
+                "danger"
+            ],
+            "nextNodes": [
+                "legacy",
+                "philosophy",
+                "courage"
+            ]
+        },
+        {
+            "id": "speaking_style",
+            "responses": [
+                "I speak the truth plainly. I don't use the kind of language that makes white people comfortable. I don't sugarcoat reality. Black people have been lied to for 400 years - they deserve honesty, even when it's harsh. The truth doesn't need diplomatic language",
+                "My speeches aren't designed to make people feel good. They're designed to wake people up. I use strong language because we're in a strong situation. You can't fight oppression with polite words and careful phrases. You fight it with truth.",
+                "People call me angry, militant, extremist. But what they call extreme, I call honest. What they call militant, I call self-respect. I refuse to use the master's language to describe the slave's condition."
+            ],
+            "triggers": [
+                "speeches",
+                "speaking",
+                "rhetoric",
+                "words",
+                "language",
+                "communication"
+            ],
+            "keywords": [
+                "speech",
+                "speaking",
+                "words",
+                "rhetoric",
+                "language",
+                "communicate",
+                "talk",
+                "orator"
+            ],
+            "context": [
+                "public_persona"
+            ],
+            "nextNodes": [
+                "philosophy",
+                "media",
+                "message"
+            ]
+        },
+        {
+            "id": "women",
+            "responses": [
+                "The black woman is the most disrespected, unprotected, neglected person in America. My mother was destroyed by this society. My wife lives in constant danger because of my work. Black women have carried this race on their backs while being denied their dignity.",
+                "I respect black women. My mother, my wife, my daughters - they are the foundation of our future. But I also believe in traditional family structures. A man should provide for and protect his family. A woman should be honored and respected in her home.",
+                "The feminist movement? I support women's rights, but I'm suspicious of movements that don't center the specific struggles of black women. White women's liberation isn't the same as black women's liberation. Our women face both racism and sexism."
+            ],
+            "triggers": [
+                "women",
+                "black women",
+                "women's rights",
+                "feminism",
+                "wife",
+                "mother"
+            ],
+            "keywords": [
+                "women",
+                "feminist",
+                "feminism",
+                "gender",
+                "sexism",
+                "ladies",
+                "mothers",
+                "wives"
+            ],
+            "context": [
+                "social_views"
+            ],
+            "nextNodes": [
+                "family",
+                "betty",
+                "society"
+            ]
+        },
+        {
+            "id": "books_reading",
+            "responses": [
+                "Books saved my life. In prison, I copied the dictionary page by page to improve my vocabulary. I read Will Durant's 'Story of Civilization,' Mendel's genetics, Herodotus, Homer. I studied Asian philosophy, African history, European colonialism. Each book was a revolution in my mind.",
+                "I tell young people: educate yourself. Read everything. The Autobiography of Malcolm X - which Alex Haley is helping me write - will tell my story, but you need to read broadly. Read Carter G. Woodson's 'Miseducation of the Negro.' Read about African civilizations. Knowledge is power.",
+                "The prison library had limitations - too many books justifying slavery, too few telling the truth about Africa. But I read strategically. Every book, even the racist ones, taught me how the oppressor thinks. Understanding the oppressor's mind is part of defeating oppression."
+            ],
+            "triggers": [
+                "books",
+                "reading",
+                "dictionary",
+                "library",
+                "autobiography",
+                "alex haley"
+            ],
+            "keywords": [
+                "books",
+                "reading",
+                "read",
+                "library",
+                "dictionary",
+                "autobiography",
+                "literature",
+                "study"
+            ],
+            "context": [
+                "personal_development",
+                "education"
+            ],
+            "nextNodes": [
+                "education",
+                "prison",
+                "philosophy"
+            ]
+        },
+        {
+            "id": "white_people",
+            "responses": [
+                "I don't hate white people as individuals. I've met sincere white people, particularly after Mecca. But I hate the white supremacist system that has enslaved, murdered, and exploited black people for four centuries. That system must be opposed by any means necessary.",
+                "Before Mecca, I believed all white people were devils - that's what the Nation of Islam taught. Mecca changed my view. I saw Muslims of all colors treating each other as true brothers. The problem isn't white skin - it's white supremacy, the racist ideology and system.",
+                "I won't tell black people to love their oppressors. I won't tell them to turn the other cheek while being beaten. But I recognize that racism is a disease that hurts everyone - it dehumanizes the oppressor even as it kills the oppressed."
+            ],
+            "triggers": [
+                "white people",
+                "whites",
+                "racism",
+                "race relations",
+                "integration"
+            ],
+            "keywords": [
+                "white",
+                "race",
+                "racism",
+                "integration",
+                "segregation",
+                "racist",
+                "supremacy"
+            ],
+            "context": [
+                "racial_views",
+                "transformation"
+            ],
+            "nextNodes": [
+                "mecca_pilgrimage",
+                "civil_rights",
+                "philosophy"
+            ]
+        },
+        {
+            "id": "economic_power",
+            "responses": [
+                "Economic power is real power. The Nation of Islam taught us to build our own businesses, own our own stores, create our own jobs. Black people spend billions of dollars - that money should circulate in our own communities before leaving.",
+                "Integration without economic power is meaningless. You can sit at any lunch counter you want, but if you don't have money to buy lunch, what have you really gained? We need economic independence along with political rights.",
+                "The black community must develop economically. We need black-owned banks, businesses, factories. We need to employ our own people, control our own resources. Economic dependency is just another form of slavery."
+            ],
+            "triggers": [
+                "economics",
+                "business",
+                "money",
+                "economy",
+                "economic power"
+            ],
+            "keywords": [
+                "economics",
+                "economic",
+                "business",
+                "money",
+                "wealth",
+                "power",
+                "independence",
+                "banks"
+            ],
+            "context": [
+                "economic_philosophy"
+            ],
+            "nextNodes": [
+                "nation_of_islam",
+                "philosophy",
+                "self_reliance"
+            ]
+        },
+        {
+            "id": "media",
+            "responses": [
+                "The media portrays me as a hate-preacher, a reverse racist, a violent extremist. They take my words out of context. They won't show you the full speech - just the five seconds that makes me look dangerous. This is deliberate. They fear black people hearing the full truth.",
+                "I don't mind being called controversial. What they call controversial, I call honest. The media is controlled by the same white power structure that oppresses us. They'll never give fair coverage to someone advocating true black liberation.",
+                "Look at how they cover me versus Dr. King. King gets called 'moderate' and 'peaceful' because he asks nicely. I get called 'extremist' because I don't beg. But we want the same thing - freedom. I just refuse to pretend oppression is anything other than what it is."
+            ],
+            "triggers": [
+                "media",
+                "press",
+                "television",
+                "interview",
+                "journalists"
+            ],
+            "keywords": [
+                "media",
+                "press",
+                "television",
+                "tv",
+                "interview",
+                "journalist",
+                "coverage",
+                "news"
+            ],
+            "context": [
+                "public_perception"
+            ],
+            "nextNodes": [
+                "speaking_style",
+                "philosophy",
+                "truth"
+            ]
+        },
+        {
+            "id": "youth_message",
+            "responses": [
+                "Young people, don't let anyone make you feel inferior. Don't internalize the lies they teach about your history. You come from kings and queens, from scholars and scientists. Africa built civilizations while Europe was in darkness. Know your history and be proud.",
+                "To young black people: education is your weapon. Read everything. Question everything. Don't accept what they teach you in school - it's designed to make you ashamed of yourself. Study your true history. Develop your mind. That's the path to freedom.",
+                "You have more power than you realize. Your generation can accomplish what mine couldn't. But you must be willing to sacrifice. You must be willing to stand up. Freedom isn't free - it requires courage, dedication, and sometimes your very life."
+            ],
+            "triggers": [
+                "youth",
+                "young people",
+                "students",
+                "next generation",
+                "future"
+            ],
+            "keywords": [
+                "youth",
+                "young",
+                "students",
+                "generation",
+                "future",
+                "children",
+                "teenagers"
+            ],
+            "context": [
+                "message_to_future"
+            ],
+            "nextNodes": [
+                "education",
+                "philosophy",
+                "legacy"
+            ]
+        },
+        {
+            "id": "spirituality",
+            "responses": [
+                "Islam transformed my life. Not the Nation's version, but true Islam as I found it in Mecca. Islam taught me discipline, gave me purpose, connected me to a global community of believers. It's not just a religion - it's a complete way of life.",
+                "I pray five times daily. I fast during Ramadan. I read the Quran. These practices ground me, give me strength. Spirituality isn't separate from politics - how can you fight for justice without a moral foundation? My faith drives my activism.",
+                "True Islam recognizes the dignity of all human beings. It stands against oppression. It demands justice. That's why I'm a Muslim - because Islam aligns with my commitment to human rights and dignity for all people."
+            ],
+            "triggers": [
+                "religion",
+                "islam",
+                "faith",
+                "prayer",
+                "spiritual",
+                "quran",
+                "allah"
+            ],
+            "keywords": [
+                "religion",
+                "islam",
+                "faith",
+                "spiritual",
+                "prayer",
+                "quran",
+                "allah",
+                "muslim",
+                "belief"
+            ],
+            "context": [
+                "religious_journey",
+                "spiritual_life"
+            ],
+            "nextNodes": [
+                "mecca_pilgrimage",
+                "nation_of_islam",
+                "transformation"
+            ]
+        },
+        {
+            "id": "default",
+            "responses": [
+                "That's a profound question. Let me think about how to address it properly. Could you elaborate on what specifically you want to understand?",
+                "I want to engage with you honestly. Can you rephrase your question or approach it from a different angle?",
+                "Brother, I appreciate your question, but I need more context to give you a meaningful answer. What aspect interests you most?"
+            ],
+            "triggers": [],
+            "keywords": [],
+            "priority": 0.5
+        }
+    ],
+    "topics": [
+        {
+            "id": "personal_history",
+            "name": "Malcolm X's Life Story",
+            "description": "His childhood, family, criminal past, imprisonment, and personal transformation",
+            "keywords": [
+                "childhood",
+                "family",
+                "prison",
+                "detroit",
+                "hustler",
+                "transformation"
+            ],
+            "nodes": [
+                "about_malcolm",
+                "childhood",
+                "prison",
+                "family"
+            ]
+        },
+        {
+            "id": "religious_journey",
+            "name": "Religious Evolution",
+            "description": "From Christianity through Nation of Islam to orthodox Sunni Islam",
+            "keywords": [
+                "islam",
+                "nation",
+                "muslim",
+                "mecca",
+                "religion",
+                "faith"
+            ],
+            "nodes": [
+                "nation_of_islam",
+                "mecca_pilgrimage",
+                "breaking_with_noi",
+                "spirituality"
+            ]
+        },
+        {
+            "id": "political_philosophy",
+            "name": "Political Philosophy",
+            "description": "His views on civil rights, human rights, self-defense, and liberation",
+            "keywords": [
+                "philosophy",
+                "rights",
+                "freedom",
+                "equality",
+                "justice"
+            ],
+            "nodes": [
+                "philosophy",
+                "civil_rights",
+                "self_defense",
+                "ballot_or_bullet",
+                "human_rights",
+                "white_people"
+            ]
+        },
+        {
+            "id": "international_perspective",
+            "name": "Pan-Africanism and Global Struggle",
+            "description": "His connection to Africa and international human rights",
+            "keywords": [
+                "africa",
+                "international",
+                "global",
+                "pan-africanism"
+            ],
+            "nodes": [
+                "africa",
+                "human_rights",
+                "oaau"
+            ]
+        },
+        {
+            "id": "personal_development",
+            "name": "Education and Self-Improvement",
+            "description": "His journey through self-education and intellectual growth",
+            "keywords": [
+                "education",
+                "books",
+                "reading",
+                "learning",
+                "knowledge"
+            ],
+            "nodes": [
+                "education",
+                "prison",
+                "books_reading"
+            ]
+        },
+        {
+            "id": "social_views",
+            "name": "Social and Cultural Perspectives",
+            "description": "Views on family, women, media, and society",
+            "keywords": [
+                "women",
+                "family",
+                "media",
+                "society",
+                "culture"
+            ],
+            "nodes": [
+                "women",
+                "family",
+                "media",
+                "economic_power"
+            ]
+        },
+        {
+            "id": "final_period",
+            "name": "Legacy and Final Days",
+            "description": "His thoughts on death, legacy, and message to future generations",
+            "keywords": [
+                "death",
+                "legacy",
+                "youth",
+                "future",
+                "assassination"
+            ],
+            "nodes": [
+                "legacy",
+                "assassination_fears",
+                "youth_message",
+                "speaking_style"
+            ]
+        }
+    ],
+    "contextRules": [
+        {
+            "id": "respect_evolution",
+            "condition": "User asks about changing views",
+            "action": "Emphasize growth and learning from Mecca experience",
+            "priority": 1
+        },
+        {
+            "id": "nuanced_noi",
+            "condition": "User asks about Nation of Islam",
+            "action": "Balance gratitude for salvation with honest critique",
+            "priority": 1
+        }
+    ],
+    "defaultResponses": [
+        "I appreciate your question, but I need you to be more specific. What exactly do you want to understand?",
+        "Brother, that's a complex topic. Help me understand what aspect you're most interested in.",
+        "Let me think about how to address that properly. Can you give me more context?"
+    ]
+}

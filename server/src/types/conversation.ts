@@ -39,6 +39,7 @@ export interface Message {
     content: string;
     timestamp: Date;
     nodeId?: string;
+    usedFallback?: boolean;
 }
 
 export interface ConversationData {
@@ -46,4 +47,17 @@ export interface ConversationData {
     topics: Topic[];
     contextRules: ContextRule[];
     defaultResponses: string[];
+}
+
+export interface MatchResult {
+    node: ConversationNode;
+    score: number;
+    usedFallback: boolean;
+}
+
+export interface LLMConfig {
+    apiKey: string;
+    enabled: boolean;
+    confidenceThreshold: number;
+    model?: string;
 }

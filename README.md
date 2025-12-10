@@ -12,6 +12,7 @@ An advanced web-based chatbot system that simulates historically accurate conver
 ### Advanced Conversation Engine
 - **Context-Aware Responses**: Tracks conversation history and adjusts responses based on previously discussed topics
 - **TF-IDF Text Matching**: Uses natural language processing for intelligent keyword and phrase matching
+- **LLM Fallback**: Integrates Google Gemini AI to handle complex queries and edge cases when JSON matching has low confidence
 - **Sentiment Analysis**: Analyzes user input sentiment to provide appropriate responses
 - **Dynamic Branching**: Conversation flows naturally through 15+ interconnected dialogue nodes
 - **Topic Tracking**: Monitors and displays discussed topics in real-time
@@ -57,6 +58,12 @@ An advanced web-based chatbot system that simulates historically accurate conver
    ```bash
    cp server/.env.example server/.env
    ```
+   
+   Edit `server/.env` and add your Google AI API key:
+   - Get a free API key from [Google AI Studio](https://aistudio.google.com)
+   - Set `GOOGLE_AI_API_KEY=your_actual_api_key`
+   - Optionally adjust `LLM_CONFIDENCE_THRESHOLD` (default: 3.0)
+   - Set `LLM_FALLBACK_ENABLED=false` to disable the LLM fallback
 
 ### Running the Application
 
@@ -204,13 +211,26 @@ See [DESIGN_DECISIONS.md](docs/DESIGN_DECISIONS.md) for detailed design rational
 
 ## 🧠 Conversation Engine
 
-The JSON-based conversation engine uses advanced natural language processing:
+The hybrid conversation engine combines JSON-based pattern matching with AI-powered fallback:
 
+### Primary Matching (JSON-Based)
 1. **TF-IDF Matching**: Calculates similarity between user input and conversation nodes
 2. **Keyword Matching**: Identifies relevant topics through keyword detection
 3. **Context Tracking**: Maintains conversation state and history
 4. **Sentiment Analysis**: Adapts responses based on user sentiment
 5. **Priority Scoring**: Combines multiple factors to select the most appropriate response
+
+### LLM Fallback (Google Gemini)
+When the confidence score falls below the threshold (default: 3.0), the system:
+- Sends the query to Google Gemini with Malcolm X's persona
+- Includes conversation history for context
+- Receives a historically accurate, in-character response
+- Falls back to default node if LLM fails or is disabled
+
+This hybrid approach ensures:
+- **High accuracy** for common questions (JSON matching)
+- **Flexibility** for complex or unexpected queries (LLM fallback)
+- **Graceful degradation** if LLM is unavailable
 
 ### Conversation Node Structure
 

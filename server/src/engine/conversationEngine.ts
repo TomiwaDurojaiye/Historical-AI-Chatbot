@@ -5,8 +5,10 @@ import {
     ConversationData,
     Message,
     Topic,
+    MatchResult,
 } from '../types/conversation';
 import conversationData from '../data/malcolmx-conversation.json';
+import LLMService from '../services/llmService';
 
 const tokenizer = new natural.WordTokenizer();
 const TfIdf = natural.TfIdf;
@@ -15,11 +17,15 @@ export class ConversationEngine {
     private data: ConversationData;
     private sessions: Map<string, ConversationState>;
     private tfidf: any;
+    private llmService: LLMService;
+    private confidenceThreshold: number;
 
     constructor() {
         this.data = conversationData as ConversationData;
         this.sessions = new Map();
         this.tfidf = new TfIdf();
+        this.llmService = new LLMService();
+        this.confidenceThreshold = parseFloat(process.env.LLM_CONFIDENCE_THRESHOLD || '3.0');
         this.initializeTfIdf();
     }
 
@@ -58,7 +64,7 @@ export class ConversationEngine {
         return this.createSession(sessionId);
     }
 
-    processMessage(sessionId: string, userMessage: string): string {
+    async processMessage(sessionId: string, userMessage: string): Promise<string> {
         let session = this.getSession(sessionId);
         if (!session) {
             session = this.createSession(sessionId);
@@ -72,32 +78,153 @@ export class ConversationEngine {
         };
         session.conversationHistory.push(userMsg);
 
-        // Find best matching node
-        const matchedNode = this.findBestNode(userMessage, session);
+        // Find best matching node with confidence score
+        const matchResult = this.findBestNodeWithScore(userMessage, session);
+        let response: string;
+        let usedFallback = false;
 
-        // Update session state
-        session.currentNode = matchedNode.id;
-        if (!session.visitedNodes.includes(matchedNode.id)) {
-            session.visitedNodes.push(matchedNode.id);
+        // Check if confidence is too low and LLM fallback is available
+        if (matchResult.score < this.confidenceThreshold && this.llmService.isEnabled()) {
+            console.log(`[LLM Fallback] Low confidence (${matchResult.score.toFixed(2)}), using LLM`);
+            try {
+                response = await this.llmService.generateResponse(
+                    userMessage,
+                    session.conversationHistory
+                );
+                usedFallback = true;
+            } catch (error: any) {
+                console.error('[LLM Fallback] Error:', error.message);
+                console.log('[LLM Fallback] Falling back to default node');
+                // Fallback to default node on LLM error
+                response = this.selectResponse(matchResult.node, session);
+            }
+        } else {
+            // Use JSON-based response
+            // Update session state
+            session.currentNode = matchResult.node.id;
+            if (!session.visitedNodes.includes(matchResult.node.id)) {
+                session.visitedNodes.push(matchResult.node.id);
+            }
+
+            // Update context
+            this.updateContext(session, matchResult.node, userMessage);
+
+            // Select appropriate response
+            response = this.selectResponse(matchResult.node, session);
         }
-
-        // Update context
-        this.updateContext(session, matchedNode, userMessage);
-
-        // Select appropriate response
-        const response = this.selectResponse(matchedNode, session);
 
         // Add bot response to history
         const botMsg: Message = {
             role: 'bot',
             content: response,
             timestamp: new Date(),
-            nodeId: matchedNode.id,
+            nodeId: usedFallback ? 'llm-fallback' : matchResult.node.id,
+            usedFallback,
         };
         session.conversationHistory.push(botMsg);
 
         this.sessions.set(sessionId, session);
         return response;
+    }
+
+    private findBestNodeWithScore(userMessage: string, session: ConversationState): MatchResult {
+        const tokens = tokenizer.tokenize(userMessage.toLowerCase()) || [];
+        let bestMatch: ConversationNode = this.data.nodes[this.data.nodes.length - 1]; // Start with default
+        let bestScore = 0;
+
+        this.data.nodes.forEach((node, index) => {
+            let score = 0;
+
+            // Check trigger phrases (high priority for exact/partial matches)
+            if (node.triggers) {
+                for (const trigger of node.triggers) {
+                    const triggerLower = trigger.toLowerCase();
+                    const messageLower = userMessage.toLowerCase();
+
+                    // Exact match - very high score
+                    if (messageLower.includes(triggerLower)) {
+                        score += 20;
+                    }
+                    // Partial word match - medium score
+                    else if (triggerLower.split(' ').some(word => messageLower.includes(word) && word.length > 3)) {
+                        score += 10;
+                    }
+                }
+            }
+
+            // Improved keyword matching (bidirectional)
+            if (node.keywords) {
+                for (const keyword of node.keywords) {
+                    const keywordLower = keyword.toLowerCase();
+
+                    // Check if any user token matches the keyword
+                    const tokenMatch = tokens.some(token =>
+                        token.length > 2 && (
+                            keywordLower.includes(token) ||
+                            token.includes(keywordLower) ||
+                            this.calculateSimilarity(token, keywordLower) > 0.7
+                        )
+                    );
+
+                    if (tokenMatch) {
+                        score += 7;
+                    }
+                }
+            }
+
+            // Check context relevance (stronger boost)
+            if (node.context) {
+                for (const contextKey of node.context) {
+                    if (session.context.has(contextKey)) {
+                        score += 5;
+                    }
+                }
+            }
+
+            // TF-IDF similarity score (increased weight)
+            this.tfidf.tfidfs(userMessage, (i: number, measure: number) => {
+                if (i === index && measure > 0) {
+                    score += measure * 15; // Increased from 2 to 15
+                }
+            });
+
+            // Boost score for next nodes (conversation flow)
+            if (session.currentNode) {
+                const currentNode = this.data.nodes.find(n => n.id === session.currentNode);
+                if (currentNode?.nextNodes?.includes(node.id)) {
+                    score += 6;
+                }
+            }
+
+            // Priority multiplier
+            if (node.priority) {
+                score *= node.priority;
+            }
+
+            // Penalty for recently visited nodes (but not too harsh)
+            if (session.visitedNodes.slice(-3).includes(node.id)) {
+                score *= 0.7; // Changed from 0.5 to 0.7
+            }
+
+            // Avoid default node unless score is very low
+            if (node.id === 'default' && score > 0) {
+                score *= 0.1;
+            }
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestMatch = node;
+            }
+        });
+
+        // Log matching for debugging
+        console.log(`[Match] "${userMessage}" -> ${bestMatch.id} (score: ${bestScore.toFixed(2)})`);
+
+        return {
+            node: bestMatch,
+            score: bestScore,
+            usedFallback: false,
+        };
     }
 
     private findBestNode(userMessage: string, session: ConversationState): ConversationNode {

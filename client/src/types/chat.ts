@@ -3,6 +3,7 @@ export interface Message {
     content: string;
     timestamp: Date;
     nodeId?: string;
+    usedFallback?: boolean;
 }
 
 export interface ChatResponse {
